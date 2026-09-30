@@ -1,0 +1,4 @@
+interface:
+  display_name: "Recon3D Cross-Cell DEG"
+  short_description: "Audit cross-cell metabolic routes and RNA evidence."
+  default_prompt: "Use $recon3d-cross-cell-deg to audit cross-cell DEG routes and state the evidence limits."

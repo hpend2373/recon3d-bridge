@@ -1,0 +1,10 @@
+[
+  {
+    "id": "synthetic-route-a",
+    "summary": "Synthetic route A: source synthesis, shared extracellular pool, receiver uptake. Deterministic topology checks and patient expression evidence are still pending."
+  },
+  {
+    "id": "synthetic-route-b",
+    "summary": {"note": "Synthetic route B", "missing": ["GPR coverage", "paired patient evidence", "transport evidence"]}
+  }
+]

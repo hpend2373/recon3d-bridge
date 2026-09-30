@@ -1,0 +1,25 @@
+{
+  "model": "jev-latest",
+  "state": {
+    "candidate_summary": "Synthetic route A. Topology check is pending. No patient-level RNA evidence or measured transfer is supplied."
+  },
+  "questions": {
+    "has_unmeasured_transfer": {
+      "type": "noul",
+      "instructions": "Does the supplied summary explicitly say that transfer has not been measured?"
+    },
+    "review_queue": {
+      "type": "choice",
+      "instructions": "Which queue fits the supplied summary? This is review routing only.",
+      "criteria": {
+        "needs_input": "Required topology or expression evidence is missing.",
+        "ready_to_inspect": "The required evidence is supplied for inspection."
+      }
+    },
+    "review_priority": {
+      "type": "score",
+      "instructions": "How informative is the supplied summary for manual inspection? Missing evidence remains missing.",
+      "criteria": ["Insufficient detail", "Some checkable detail", "Clear and informative detail"]
+    }
+  }
+}

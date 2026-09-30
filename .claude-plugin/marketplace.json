@@ -1,0 +1,13 @@
+{
+  "name": "recon3d-skills",
+  "description": "Recon3D cross-cell DEG audit skills and optional decision API integration.",
+  "owner": {"name": "minyeop"},
+  "plugins": [
+    {
+      "name": "recon3d-cross-cell-deg",
+      "source": "./",
+      "description": "Evidence-aware Recon3D cross-cell DEG audit skill",
+      "version": "1.1.0"
+    }
+  ]
+}
