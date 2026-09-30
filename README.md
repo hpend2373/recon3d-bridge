@@ -15,6 +15,18 @@ An **Agent Skills package with Jev/Laya API integration** for mapping differenti
 
 The executable code handles installation, packaging, instruction loading, API calls, and review ordering. Recon3D models, patient data, and the scientific pipeline for path enumeration, GPR calculation, and statistical analysis are not included. Supply the model and expression inputs and run analysis tools according to the skill instructions.
 
+## Benchmark on the supplied test file
+
+Using `DEG_hits_CD4_and_HF.csv` (97 rows, 66 genes) and Recon3D (10,600 reactions), **indexed DEG-to-reaction mapping took 13.36 ms versus 62.09 ms for a new repeated-scan reference: 4.65× faster, or 78.5% less time**, including index construction. Values are medians of 21 repetitions on Darwin arm64, Python 3.14.4; common file loading and validation are excluded.
+
+![Mapping-stage runtime benchmark](benchmarks/results/2026-09-30-mapping/mapping-runtime.png)
+
+All 97 rows were retained and the same **198 row–reaction associations / 125 unique reactions** were returned, with 100% exact identity agreement and an independent oracle check. This demonstrates preserved mechanical output, not improved biological accuracy.
+
+![Mapping output equivalence](benchmarks/results/2026-09-30-mapping/mapping-output.png)
+
+**Scope:** mapping membership in GPR expressions only. This newly implemented reference is not the previous prototype. Full route-search time, biological accuracy and Laya/Jev gains have not been measured. See [protocol, source hashes, raw timings, reproduction commands and SVG exports](benchmarks/README.md). Raw test data are not published.
+
 ## Quick installation
 
 Python 3.10+ is required. No additional Python packages are needed.

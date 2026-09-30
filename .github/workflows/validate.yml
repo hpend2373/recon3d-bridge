@@ -22,5 +22,7 @@ jobs:
           python-version: ${{ matrix.python }}
       - run: python tools/manage.py validate
       - run: python -m unittest discover -s tests -v
+      - run: python benchmarks/check_mapping.py
+      - run: python benchmarks/check_report.py
       - run: python tools/manage.py pack --kind plugin --output dist/recon3d-plugin.zip
       - run: python tools/manage.py pack --kind skill --output dist/recon3d-skill.zip

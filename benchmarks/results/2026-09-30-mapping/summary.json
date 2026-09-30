@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "measured_at_utc": "2026-09-30T03:53:58.081603+00:00",
+  "scope": "DEG symbol to model reaction membership mapping only",
+  "baseline": "New reference implementation: repeated reaction scans; not the previous prototype",
+  "interpretation": "Output-preserving speed comparison, not an improvement in biological accuracy or route yield",
+  "inputs": {
+    "deg_name": "DEG_hits_CD4_and_HF.csv",
+    "deg_sha256": "ec2363f12984ea9e921bac81de79229d0aa63b2c257761b877f572e2600d5288",
+    "model_name": "Recon3D.json",
+    "model_sha256": "aba925f17547a42f9fdb4c1f685d89364cbf4979bbe7862e9f793af7169b26d5",
+    "deg_rows": 97,
+    "unique_gene_symbols": 66,
+    "analysis_groups": 6,
+    "model_reactions": 10600,
+    "model_genes": 2248
+  },
+  "environment": {
+    "system": "Darwin",
+    "machine": "arm64",
+    "python": "3.14.4"
+  },
+  "protocol": {
+    "repeats": 21,
+    "order": "rotating and alternating",
+    "input_load_and_validation_seconds_excluded_from_each_method": 0.044104957953095436,
+    "cold_index_build": "included",
+    "reused_index_build": "excluded and separately shown",
+    "imports_and_model_parsing": "common overhead excluded",
+    "symbol_matching": "exact model gene names; no alias inference",
+    "gpr_semantics": "gene membership only; Boolean activation is not evaluated",
+    "statistic": "median and interquartile range, not a confidence interval"
+  },
+  "timing": {
+    "reference_scan": {
+      "n": 21,
+      "median_ms": 62.091042,
+      "q1_ms": 61.580584,
+      "q3_ms": 63.054667,
+      "min_ms": 60.639042,
+      "max_ms": 67.038625
+    },
+    "indexed_cold": {
+      "n": 21,
+      "median_ms": 13.3585,
+      "q1_ms": 12.719,
+      "q3_ms": 13.721375,
+      "min_ms": 8.094208,
+      "max_ms": 14.063333
+    },
+    "indexed_reused": {
+      "n": 21,
+      "median_ms": 0.051125,
+      "q1_ms": 0.042584,
+      "q3_ms": 0.060667,
+      "min_ms": 0.03825,
+      "max_ms": 0.0645
+    }
+  },
+  "comparison": {
+    "indexed_cold": {
+      "ratio_of_medians_speedup": 4.64805494628888,
+      "median_time_reduction_percent": 78.48562438362687
+    },
+    "indexed_reused": {
+      "ratio_of_medians_speedup": 1214.4947090464548,
+      "median_time_reduction_percent": 99.91766123042355
+    }
+  },
+  "output": {
+    "rows_retained": 97,
+    "rows_with_reaction_mapping": 19,
+    "unmapped_rows": 78,
+    "unique_mapped_gene_symbols": 11,
+    "row_reaction_associations": 198,
+    "unique_reactions": 125,
+    "exact_row_and_reaction_identity_agreement_percent": 100,
+    "output_sha256": "b05d272e01d4e656e2f48c31257d0ae55e6c4179c83d0fa35ac6e9c03a3a2c4b",
+    "independent_literal_token_oracle": "PASS"
+  },
+  "source_sha256": {
+    "benchmark_mapping.py": "b0cf410549051d00afabfc1118617babb4b5b69e6d1548ff918a783e2064a871",
+    "mapping.py": "5c7943aab7cd1507a0028153137e62239f1e9bfad9b0b01f2ff6ab5a35ea714f",
+    "check_mapping.py": "1e2217ca017d5278bb8e20db8eaf5339b31ad1ae41c2a3da13b43c74ef0e60ab"
+  },
+  "unmeasured": [
+    "end-to-end route search time",
+    "Laya inference",
+    "Jev inference",
+    "biological accuracy",
+    "RNA-supported route yield",
+    "intercellular transfer or flux"
+  ]
+}
