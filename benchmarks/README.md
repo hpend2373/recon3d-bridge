@@ -6,13 +6,15 @@ Measured on **2026-09-30**, using the supplied `DEG_hits_CD4_and_HF.csv` and `Re
 
 ## Time and output
 
+Both figures use the same simple method labels: **Rule-based** = the newly implemented repeated-scan reference; **Our system** = indexed mapping. These are mapping-stage implementations. They do not label a measured model-assisted or end-to-end system comparison.
+
 ![Mapping runtime, including index construction](results/2026-09-30-mapping/mapping-runtime.png)
 
 | Method | Median time | IQR | Index construction |
 |---|---:|---:|---|
-| Repeated scan, new reference | 62.091 ms | 61.581–63.055 ms | No index |
-| Indexed mapping, build included | 13.359 ms | 12.719–13.721 ms | Included on every invocation |
-| Indexed mapping, reused index | 0.0511 ms | 0.0426–0.0607 ms | Excluded; separate reuse measurement |
+| Rule-based | 62.091 ms | 61.581–63.055 ms | No index |
+| Our system: first use | 13.359 ms | 12.719–13.721 ms | Included on every invocation |
+| Our system: existing index | 0.0511 ms | 0.0426–0.0607 ms | Excluded; separate reuse measurement |
 
 **With index construction included: 4.65× faster, or 78.5% less mapping time.** This is a ratio of medians, not the median of paired speedups. The reuse measurement requires an existing index for the same model and is not a first-use or full-pipeline speedup.
 

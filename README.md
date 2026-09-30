@@ -21,6 +21,8 @@ Using `DEG_hits_CD4_and_HF.csv` (97 rows, 66 genes) and Recon3D (10,600 reaction
 
 ![Mapping-stage runtime benchmark](benchmarks/results/2026-09-30-mapping/mapping-runtime.png)
 
+Figure labels: **Rule-based** is the newly implemented repeated-scan reference; **Our system** is the indexed mapping implementation. The main panel includes index construction; the right panel shows reuse of an existing index. These labels describe the mapping implementations, not Laya/Jev inference.
+
 All 97 rows were retained and the same **198 row–reaction associations / 125 unique reactions** were returned, with 100% exact identity agreement and an independent oracle check. This demonstrates preserved mechanical output, not improved biological accuracy.
 
 ![Mapping output equivalence](benchmarks/results/2026-09-30-mapping/mapping-output.png)
