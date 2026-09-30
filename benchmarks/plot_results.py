@@ -26,11 +26,8 @@ def main():
                          "axes.spines.top": False, "axes.spines.right": False,
                          "svg.fonttype": "none"})
     colors = ["#63788C", "#087E8B", "#8456A1"]
-    footnote = (f"{report['protocol']['repeats']} repetitions per method · Median and IQR (not a confidence interval)\n"
-                f"{report['environment']['system']} {report['environment']['machine']} · Python {report['environment']['python']} · File loading / validation excluded")
-    fig, axes = plt.subplots(1, 2, figsize=(12, 6), gridspec_kw={"width_ratios": [1.6, 1]})
-    fig.suptitle("Faster DEG-to-reaction membership mapping", x=.08, ha="left", fontsize=20, fontweight="bold")
-    fig.text(.08, .87, "DEG_hits_CD4_and_HF.csv · 97 rows / 66 genes · Recon3D: 10,600 reactions", color="#465564")
+    fig, axes = plt.subplots(1, 2, figsize=(12, 5), gridspec_kw={"width_ratios": [1.6, 1]})
+    fig.suptitle("Mapping time", fontsize=20, fontweight="bold")
     for ax, methods in zip(axes, [("reference_scan", "indexed_cold"), ("indexed_reused",)]):
         labels = ["Rule-based" if m == "reference_scan" else "Our system" for m in methods]
         for position, method in enumerate(methods):
@@ -49,18 +46,13 @@ def main():
         ax.set_ylim(0, max(report["timing"][m]["max_ms"] for m in methods) * 1.35)
         ax.grid(axis="y", alpha=.15)
         ax.set_axisbelow(True)
-    comparison = report["comparison"]["indexed_cold"]
-    axes[0].set_title(f"First use: {comparison['ratio_of_medians_speedup']:.2f}× faster / {comparison['median_time_reduction_percent']:.1f}% less time", fontsize=12, pad=15)
-    axes[1].set_title("Index already built · Separate scale", fontsize=12, pad=15)
-    fig.text(.08, .135, "Rule-based = repeated scan; Our system = indexed mapping. First-use time includes index construction.", fontsize=9)
-    fig.text(.08, .105, "Mapping stage only. The rule-based reference was newly implemented; Laya/Jev were not measured.", fontsize=9)
-    fig.text(.08, .055, footnote, fontsize=9, color="#465564")
-    fig.subplots_adjust(left=.08, right=.97, top=.74, bottom=.25, wspace=.42)
+    axes[0].set_title("First use", fontsize=12, pad=15)
+    axes[1].set_title("Index reuse", fontsize=12, pad=15)
+    fig.subplots_adjust(left=.08, right=.97, top=.78, bottom=.13, wspace=.42)
     save(fig, args.report, "mapping-runtime")
 
-    fig, ax = plt.subplots(figsize=(11, 6))
-    fig.suptitle("Same mechanical output, with no dropped rows", x=.1, ha="left", fontsize=19, fontweight="bold")
-    fig.text(.1, .85, "100% exact row and reaction identity agreement · Independent literal-token oracle: PASS", color="#087E8B")
+    fig, ax = plt.subplots(figsize=(11, 5))
+    fig.suptitle("Mapping results", fontsize=20, fontweight="bold")
     fields = [("Input rows kept", "rows_retained"), ("Rows matched", "rows_with_reaction_mapping"),
               ("Gene–reaction links", "row_reaction_associations"), ("Different reactions", "unique_reactions")]
     metric_colors = ["#63788C", "#087E8B", "#8456A1", "#C68A30"]
@@ -74,11 +66,8 @@ def main():
     ax.set_ylim(0, 240)
     ax.grid(axis="y", alpha=.15)
     ax.set_axisbelow(True)
-    ax.legend(loc="upper center", bbox_to_anchor=(.5, 1.14), ncol=2, frameon=False, fontsize=10)
-    fig.text(.1, .13, "Rule-based = repeated scan; Our system = indexed mapping. Links count each input row and reaction pair.", fontsize=9)
-    fig.text(.1, .095, "Coverage: 19/97 rows and 11/66 unique gene symbols mapped; all 78 unmapped rows retained.", fontsize=10)
-    fig.text(.1, .055, "Membership in a GPR expression only. Biological accuracy, route yield, Laya/Jev and full runtime were not measured.", fontsize=9)
-    fig.subplots_adjust(left=.1, right=.97, top=.67, bottom=.25)
+    ax.legend(loc="upper center", bbox_to_anchor=(.5, 1.19), ncol=2, frameon=False, fontsize=10)
+    fig.subplots_adjust(left=.1, right=.97, top=.73, bottom=.13)
     save(fig, args.report, "mapping-output")
     print("Verified plots: mapping-runtime.{png,svg}, mapping-output.{png,svg}")
 
