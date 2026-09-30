@@ -1,6 +1,7 @@
 """Render verified aggregate benchmark data as publication/export artifacts."""
 
 import argparse
+import hashlib
 from pathlib import Path
 import matplotlib
 matplotlib.use("Agg")
@@ -14,6 +15,10 @@ def save(fig, output, name):
         fig.savefig(path, dpi=180, facecolor="white")
         if extension == "svg":
             path.write_text("\n".join(line.rstrip() for line in path.read_text().splitlines()) + "\n")
+    # Immutable asset names prevent stale branch-URL image caches in READMEs.
+    digest = hashlib.sha256((output / f"{name}.png").read_bytes()).hexdigest()[:12]
+    for extension in ("png", "svg"):
+        (output / f"{name}-{digest}.{extension}").write_bytes((output / f"{name}.{extension}").read_bytes())
     plt.close(fig)
 
 

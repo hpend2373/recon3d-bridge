@@ -8,7 +8,7 @@ Measured on **2026-09-30**, using the supplied `DEG_hits_CD4_and_HF.csv` and `Re
 
 Both figures use the same simple method labels: **Rule-based** = the newly implemented repeated-scan reference; **Our system** = indexed mapping. These are mapping-stage implementations. They do not label a measured model-assisted or end-to-end system comparison.
 
-![Mapping runtime, including index construction](results/2026-09-30-mapping/mapping-runtime.png)
+![Mapping runtime, including index construction](results/2026-09-30-mapping/mapping-runtime-db3d6fb9d341.png)
 
 | Method | Median time | IQR | Index construction |
 |---|---:|---:|---|
@@ -18,7 +18,7 @@ Both figures use the same simple method labels: **Rule-based** = the newly imple
 
 **With index construction included: 4.65× faster, or 78.5% less mapping time.** This is a ratio of medians, not the median of paired speedups. The reuse measurement requires an existing index for the same model and is not a first-use or full-pipeline speedup.
 
-![Mapping output counts and exact equivalence](results/2026-09-30-mapping/mapping-output.png)
+![Mapping output counts and exact equivalence](results/2026-09-30-mapping/mapping-output-f2df6fc1058f.png)
 
 All three methods returned identical row identities and reaction memberships in every timed run: **97 rows retained, 19 mapped rows, 198 row–reaction associations, 125 unique reactions**. An independently implemented literal-token oracle agreed with the reference. Exactly 11 of 66 unique gene symbols mapped using model gene names; all 78 unmapped rows were retained. An association counts one reaction for one analysis/gene row, so it is not a unique reaction or a cross-cell route.
 
@@ -39,7 +39,7 @@ The effectiveness result is **preservation of mechanical mapping output**, with 
 | `Recon3D.json` | `aba925f17547a42f9fdb4c1f685d89364cbf4979bbe7862e9f793af7169b26d5` |
 | Canonical mapped output | `b05d272e01d4e656e2f48c31257d0ae55e6c4179c83d0fa35ac6e9c03a3a2c4b` |
 
-Machine-readable evidence: [summary and measured source hashes](results/2026-09-30-mapping/summary.json), [raw timings](results/2026-09-30-mapping/timings.csv). Export figures: [runtime SVG](results/2026-09-30-mapping/mapping-runtime.svg), [output SVG](results/2026-09-30-mapping/mapping-output.svg).
+Machine-readable evidence: [summary and measured source hashes](results/2026-09-30-mapping/summary.json), [raw timings](results/2026-09-30-mapping/timings.csv). Export figures: [runtime SVG](results/2026-09-30-mapping/mapping-runtime-db3d6fb9d341.svg), [output SVG](results/2026-09-30-mapping/mapping-output-f2df6fc1058f.svg).
 
 ## Reproduce
 

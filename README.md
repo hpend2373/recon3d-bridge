@@ -19,13 +19,13 @@ The executable code handles installation, packaging, instruction loading, API ca
 
 Using `DEG_hits_CD4_and_HF.csv` (97 rows, 66 genes) and Recon3D (10,600 reactions), **indexed DEG-to-reaction mapping took 13.36 ms versus 62.09 ms for a new repeated-scan reference: 4.65× faster, or 78.5% less time**, including index construction. Values are medians of 21 repetitions on Darwin arm64, Python 3.14.4; common file loading and validation are excluded.
 
-![Mapping-stage runtime benchmark](benchmarks/results/2026-09-30-mapping/mapping-runtime.png)
+![Mapping-stage runtime benchmark](benchmarks/results/2026-09-30-mapping/mapping-runtime-db3d6fb9d341.png)
 
 Figure labels: **Rule-based** is the newly implemented repeated-scan reference; **Our system** is the indexed mapping implementation. The main panel includes index construction; the right panel shows reuse of an existing index. These labels describe the mapping implementations, not Laya/Jev inference.
 
 All 97 rows were retained and the same **198 row–reaction associations / 125 unique reactions** were returned, with 100% exact identity agreement and an independent oracle check. This demonstrates preserved mechanical output, not improved biological accuracy.
 
-![Mapping output equivalence](benchmarks/results/2026-09-30-mapping/mapping-output.png)
+![Mapping output equivalence](benchmarks/results/2026-09-30-mapping/mapping-output-f2df6fc1058f.png)
 
 **Scope:** mapping membership in GPR expressions only. This newly implemented reference is not the previous prototype. Full route-search time, biological accuracy and Laya/Jev gains have not been measured. See [protocol, source hashes, raw timings, reproduction commands and SVG exports](benchmarks/README.md). Raw test data are not published.
 
