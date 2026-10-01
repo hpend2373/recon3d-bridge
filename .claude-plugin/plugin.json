@@ -3,5 +3,5 @@
   "version": "1.1.0",
   "description": "Audit cross-cell DEG routes with Recon3D and optional Jev or Laya review guidance.",
   "author": {"name": "minyeop"},
-  "repository": "https://github.com/hpend2373/recon3d-cross-cell-deg"
+  "repository": "https://github.com/hpend2373/reconbridge"
 }

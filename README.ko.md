@@ -1,6 +1,10 @@
-# Recon3D Cross-Cell DEG
+# ReconBridge
 
 [English](README.md) | 한국어
+
+**From genes to metabolic connections.**
+
+유전자에서 대사 연결로.
 
 두 세포 유형의 DEG를 Recon3D 반응에 연결하고, 대사물질을 매개로 이어질 수 있는 경로와 근거의 한계를 검토하는 **Agent Skills 표준 스킬 + Jev/Laya API 연동 코드**입니다.
 
@@ -34,8 +38,8 @@
 Python 3.10+가 필요하며, 추가 Python 패키지는 필요하지 않습니다.
 
 ```sh
-git clone https://github.com/hpend2373/recon3d-cross-cell-deg.git
-cd recon3d-cross-cell-deg
+git clone https://github.com/hpend2373/reconbridge.git
+cd reconbridge
 python3 tools/manage.py validate
 python3 tools/manage.py install --framework codex
 ```
@@ -57,7 +61,7 @@ Codex에서는 `$recon3d-cross-cell-deg`, Claude Code의 직접 설치에서는 
 ### Claude Code 플러그인으로 설치
 
 ```sh
-claude plugin marketplace add hpend2373/recon3d-cross-cell-deg
+claude plugin marketplace add hpend2373/reconbridge
 claude plugin install recon3d-cross-cell-deg@recon3d-skills
 ```
 

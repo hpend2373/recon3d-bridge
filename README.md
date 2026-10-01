@@ -1,6 +1,8 @@
-# Recon3D Cross-Cell DEG
+# ReconBridge
 
 English | [한국어](README.ko.md)
+
+**From genes to metabolic connections.**
 
 An **Agent Skills package with Jev/Laya API integration** for mapping differential expression in two cell types to Recon3D reactions and auditing possible metabolite-mediated routes and their evidence limits.
 
@@ -34,8 +36,8 @@ All 97 rows were retained and the same **198 row–reaction associations / 125 u
 Python 3.10+ is required. No additional Python packages are needed.
 
 ```sh
-git clone https://github.com/hpend2373/recon3d-cross-cell-deg.git
-cd recon3d-cross-cell-deg
+git clone https://github.com/hpend2373/reconbridge.git
+cd reconbridge
 python3 tools/manage.py validate
 python3 tools/manage.py install --framework codex
 ```
@@ -57,7 +59,7 @@ Invoke `$recon3d-cross-cell-deg` in Codex or `/recon3d-cross-cell-deg` in Claude
 ### Install as a Claude Code plugin
 
 ```sh
-claude plugin marketplace add hpend2373/recon3d-cross-cell-deg
+claude plugin marketplace add hpend2373/reconbridge
 claude plugin install recon3d-cross-cell-deg@recon3d-skills
 ```
 
