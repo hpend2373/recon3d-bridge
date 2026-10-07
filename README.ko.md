@@ -1,4 +1,4 @@
-# recon3d-bridge
+# Recon3d Bridge
 
 [English](README.md) | 한국어
 
