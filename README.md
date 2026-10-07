@@ -1,4 +1,4 @@
-# recon3d-bridge
+# Recon3d Bridge
 
 English | [한국어](README.ko.md)
 
