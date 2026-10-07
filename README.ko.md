@@ -1,4 +1,4 @@
-# ReconBridge
+# recon3d-bridge
 
 [English](README.md) | 한국어
 
@@ -38,8 +38,8 @@
 Python 3.10+가 필요하며, 추가 Python 패키지는 필요하지 않습니다.
 
 ```sh
-git clone https://github.com/hpend2373/reconbridge.git
-cd reconbridge
+git clone https://github.com/hpend2373/recon3d-bridge.git
+cd recon3d-bridge
 python3 tools/manage.py validate
 python3 tools/manage.py install --framework codex
 ```
@@ -61,7 +61,7 @@ Codex에서는 `$recon3d-cross-cell-deg`, Claude Code의 직접 설치에서는 
 ### Claude Code 플러그인으로 설치
 
 ```sh
-claude plugin marketplace add hpend2373/reconbridge
+claude plugin marketplace add hpend2373/recon3d-bridge
 claude plugin install recon3d-cross-cell-deg@recon3d-skills
 ```
 
